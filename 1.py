@@ -11,6 +11,14 @@ class NewVisitorTest(unittest.TestCase):
 
     def tearDown(self):
         self.browser.quit()
+ 
+
+    def check_for_row_in_list_table(self, row_text):
+        """辅助方法:检查row.text"""
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn(row_text, [row.text for row in rows])
+
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Edith has heard about a cool new online to-do app. She goes
@@ -18,7 +26,7 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://localhost:8000')
         #She notices the page title and header mention to-do lists
         self.assertIn('To-Do',self.browser.title)
-        header_text=self.browser.find_element_by_tag_name('hi').text
+        header_text=self.browser.find_element_by_tag_name('h1').text
         self.assertIn('To-Do',header_text)
         #She is invited to enter a to-do item straight away
         inputbox =self.browser.find_element_by_id('id_new_item')
@@ -26,16 +34,34 @@ class NewVisitorTest(unittest.TestCase):
             inputbox.get_attribute('placeholder'),
             'Enter a to-do item'
             )
-        inputbox.senf_keys(Keys.ENTER)
+            
+        inputbox.send_keys('Buy peacock feathers')
+        # 回车键
+        inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        table=self.browser.find_element_by_id('id_list_table')
-        rows=find_element_by_tag_name('tr')
+
+        self.check_for_row_in_list_table('1: Buy peacock feathers')
+
+        # 表格中数据有变化时，页面会自动刷新，需要重新查找元素
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('Use peacock feathers to make a fly')
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+
+        '''
         self.assertTrue(
-            any(row.text=='1:Buy peacock feathers' for row in rows).
-            "New to-do item did not apear in table"
+            any(row.text=='1:Buy peacock feathers' for row in rows),
+            f"New to-do item did not apear in table.Contents were:\n{table.text}"
             )
         
-        
+        self .assertIn('1:Buy peacock feathers',[row.text for row in rows])
+        self.assertIn(
+        '2:Use peacock feathers to make a fly',
+        [row.text for row in rows]
+        )
+        '''
+        self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
+        self.check_for_row_in_list_table('1: Buy peacock feathers')
         self.fail('finish the test!')
 if __name__=='__main__':
     unittest.main(warnings='ignore')
