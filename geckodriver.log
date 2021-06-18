@@ -4636,3 +4636,35 @@ JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 125: Error: 
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1623988809838	geckodriver	INFO	Listening on 127.0.0.1:63821
+1623988812935	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ZHOUYI~1\\AppData\\Local\\Temp\\rust_mozprofilelCYHSY"
+1623988813311	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1623988815010	Marionette	INFO	Listening on port 63829
+1623988815127	Marionette	WARN	TLS certificate errors will be ignored for this session
+1623988815221	Marionette	INFO	Stopped listening on port 63829
+1623988816608	geckodriver	INFO	Listening on 127.0.0.1:63856
+1623988819690	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ZHOUYI~1\\AppData\\Local\\Temp\\rust_mozprofile4BCQ9L"
+1623988820049	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1623988821759	Marionette	INFO	Listening on port 63864
+1623988821793	Marionette	WARN	TLS certificate errors will be ignored for this session
+1623988822051	Marionette	INFO	Stopped listening on port 63864
+console.warn: services.settings: main/partitioning-exempt-urls sync interrupted by shutdown
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1623988822560	geckodriver	INFO	Listening on 127.0.0.1:63887
+1623988825642	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ZHOUYI~1\\AppData\\Local\\Temp\\rust_mozprofilekJ8lii"
+1623988826012	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1623988827720	Marionette	INFO	Listening on port 63895
+1623988828043	Marionette	WARN	TLS certificate errors will be ignored for this session
+1623988828137	Marionette	INFO	Stopped listening on port 63895
+console.warn: services.settings: main/cfr sync interrupted by shutdown
+[Parent 13788, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
